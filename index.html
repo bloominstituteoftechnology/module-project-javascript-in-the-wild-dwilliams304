@@ -66,10 +66,13 @@
     // ❗ Notes
     // 🧠 Use ternary expressions to construct the string.
     const devGreet = (isFrontend, isHappy) => {
+      /*
       let result = '';
       isFrontend ? result += 'Hey, I am a frontend dev ': result += 'Hey, I am a backend dev '
       isHappy ? result += 'and I am happy': result += 'and I am sad'
       return result;
+      */
+      return `Hey, I am a ${isFrontend ? 'frontend': 'backend'} dev and I am ${isHappy? 'happy': 'sad'}`;
     }
 
     // 👉 CHALLENGE 4
@@ -83,7 +86,7 @@
     // 🧠 Try using destructuring to grab the name, and a return followed by a ternary expression.
     const recognize = obj => {
       let {name} = obj;
-      return name !== undefined ? `${name} Rules!`: `Hidden Person Rocks!`;
+      return name  ? `${name} Rules!`: `Hidden Person Rocks!`;
     }
 
     // 👉 CHALLENGE 5
@@ -94,7 +97,7 @@
     // ❗ Notes
     // 🧠 Using map, arrow function syntax, and the ternary, you can make this function a short one-liner
     const processBooleans = bools => {
-      return bools.map(i => i === 1 ? i = 'Y': i = 'N')
+      return bools.map(i => i ? 'Y': 'N')
     }
 
     // 👉 CHALLENGE 6
@@ -128,8 +131,17 @@
     // ❗ Notes
     // 🧠 Even though object properties have no particular order, to avoid confusing
     // the test runner, please set in each object first name, then age, and finally jsLover.
-    const zip = (arr1, arr2, arr3) => {
-      
+    const zip = (names, years, jsLovers) => {
+      let result = [];
+      names.forEach((name, i) =>{
+        let person = {
+          name: name,
+          born: years[i],
+          jsLover: jsLovers[i]
+        }
+        result.push(person)
+      })
+      return result;
     }
 
     // 🧪 TESTS, do not work below this line
