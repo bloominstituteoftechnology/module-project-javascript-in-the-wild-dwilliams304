@@ -32,11 +32,10 @@
     const swapper = arr => {
       if(arr.length < 2){return 'No swap performed';}
       const [first] = arr;
-      const last = arr.at(arr.length -1);
-      const copyArr = [...arr];
-      copyArr[0] = last;
-      copyArr[copyArr.length -1] = first;
-      return copyArr;
+      const last = arr.at(-1);
+      arr[0] = last;
+      arr[arr.length-1] = first;
+      return arr;
     }
 
     // 👉 CHALLENGE 2
@@ -84,9 +83,7 @@
     // 🧠 Try using destructuring to grab the name, and a return followed by a ternary expression.
     const recognize = obj => {
       let {name} = obj;
-      let result = '';
-      name !== undefined ? result = `${name} Rules!`: result = `Hidden Person Rocks!`;
-      return result;
+      return name !== undefined ? `${name} Rules!`: `Hidden Person Rocks!`;
     }
 
     // 👉 CHALLENGE 5
@@ -116,8 +113,7 @@
       for(let i = stringArray.length-1; i > -1; i--){
         reversed.push(stringArray[i]);
       }
-      str === reversed.join('') ? final = "It's a palindrome!": final = reversed.join('');
-      return final
+      return str === reversed.join('') ? "It's a palindrome!": reversed.join('');
     }
 
     // 👉 CHALLENGE 7
